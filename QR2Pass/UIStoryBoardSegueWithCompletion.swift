@@ -1,7 +1,7 @@
 //
 //  UIStoryBoardSegueWithCompletion.swift
 //  QR2Pass
-//
+//  override UIStoryboardSegue to provide a completion closure
 //  Created by Yorwos Pallikaropoulos on 12/4/21.
 //  Copyright © 2021 Yorwos Pallikaropoulos. All rights reserved.
 //
