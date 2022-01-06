@@ -58,7 +58,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override func viewDidLoad() {
         super.viewDidLoad()
         previewView.frame = view.frame
-        previewView.backgroundColor = .red
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        
 
         // setup the capture session
 
@@ -165,6 +168,17 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         
         
+    }
+    
+    
+    // when app moves to backround return to main VC
+    @objc func appMovedToBackground() {
+        
+        captureSession.stopRunning()
+        performSegue(withIdentifier: "unwind to main", sender: self)
+
+
+
     }
 
     
